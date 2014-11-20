@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title></title>
+	<link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+<script type="text/template" id="plane">
+<div id="avion"></div>
+</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script src="stellar.js"></script>
+<script type="text/javascript">
+var tpl = document.getElementById("plane").innerHTML;
+var plane = new Solid(gravity,{tpl: tpl, name: "plane"});
+console.log(plane)
+
+var mouse = new Solid(gravity, {name: "mouse", draw: false, x: 100, y: 100});
+// document.onmousemove = function (e){
+//   mouse.x = e.pageX;
+//   mouse.y = e.pageY-document.body.scrollTop;
+//   // console.log(mouse)
+// };
+plane.startOfTimes([mouse]);
+
+document.body.onclick = function(){
+	debugger;
+}
+</script>
+</body>
+</html>
